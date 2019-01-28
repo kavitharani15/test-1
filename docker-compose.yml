@@ -1,0 +1,4 @@
+spark:
+  image: kavitharani15/spark:latest
+  ports:
+    - "82:8080"
