@@ -23,14 +23,6 @@ node {
    stage('Push Images to Docker Hub') {
         sh "docker login -u kavitharani15 -p $dockerhub && docker push kavitharani15/spark:$BUILD_NUMBER && docker push kavitharani15/spark:latest"
    }
-   stage('Cleanup containers') {
-        sh "docker stop spark && docker rm spark"
-   }
-   stage('Deploy the latest Image'){
-       sh "docker run -d --name spark -p 8080:8080 kavitharani15/spark:latest"
-   }
-   stage('Cleanup Image') {
-        sh "docker rmi kavitharani15/spark:$BUILD_NUMBER"
-   }
+   
 }
 
