@@ -1,0 +1,19 @@
+
+pipeline {
+    agent any 
+    stages {
+        stage('Git clone') { 
+            steps {
+                //cloning the repository
+		git https://github.com/kavitharani15/test-1.git 
+            }
+        }
+        
+        stage('Deploy') { 
+            steps {
+                //Deploy the container
+		sh "docker-compose up -d" 
+            }
+        }
+    }
+}
